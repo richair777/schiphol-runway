@@ -1,10 +1,10 @@
 {
   "domain": "schiphol_runway",
   "name": "Schiphol Runway",
-  "documentation": "",
+  "documentation": "https://github.com/richair777/schiphol-runway",
   "dependencies": [],
   "codeowners": [
-    "@richair"
+    "@richair777"
   ],
   "requirements": []
 }
