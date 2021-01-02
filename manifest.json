@@ -1,0 +1,10 @@
+{
+  "domain": "schiphol_runway",
+  "name": "Schiphol Runway",
+  "documentation": "",
+  "dependencies": [],
+  "codeowners": [
+    "@richair"
+  ],
+  "requirements": []
+}
