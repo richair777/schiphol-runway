@@ -34,7 +34,7 @@ class RunwaySensor(Entity):
 
     def __init__(self, name, selector):
         """Initialize the sensor."""
-        self._state = 99
+        self._state = 'updating'
         # variable_info = RUNWAY_TYPES[condition]
         # self._condition_name = variable_info[0]
         self._name = name
