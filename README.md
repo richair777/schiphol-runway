@@ -14,8 +14,8 @@ To install:
 2) In *'custom_components'*, create a folder *'schiphol_runway'*.
 3) Copy files in this repository to this folder. 
 4) Add the following to *configuration.yaml*:
-'''
+```
 sensor:
   - platform: schiphol_runway
-'''
+```
 5) Restart HA and wait for the sensors to update (can take up to a minute).
