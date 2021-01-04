@@ -34,7 +34,7 @@ class RunwaySensor(Entity):
 
     def __init__(self, name, selector):
         """Initialize the sensor."""
-        self._state = 'updating'
+        self._state = "updating"
         # variable_info = RUNWAY_TYPES[condition]
         # self._condition_name = variable_info[0]
         self._name = name
@@ -52,29 +52,6 @@ class RunwaySensor(Entity):
         """Return the state of the sensor."""
         return self._state
 
-    def extract_runway(runway_list, runway_config):
-        runway_config = self._selector
-        rwy_selector0 = "" + runway_config
-        rwy_selector1 = " " + runway_config
-        rwy_selector2 = "-" + runway_config
-
-        landing_element = [i for i in runway_list if rwy_selector0 in i]
-        takeoff_element = [i for i in runway_list if rwy_selector0 in i]
-
-        split1 = landing_element[0].split("airstrip-")
-        split2a = split1[0].split(rwy_selector1)
-        split2b = split1[1].split(rwy_selector2)
-
-        rwy = [0, 0]
-        rwy_nr = split2b[0]
-        rwy_name = split2a[0]
-        rwy[0] = rwy_nr
-        rwy[1] = rwy_name
-
-        runway_nr = rwy[0]
-
-        return runway_nr
-
     def update(self):
         """Fetch new state data for the sensor.
         This is the only method that should fetch new data for Home Assistant.
@@ -91,27 +68,23 @@ class RunwaySensor(Entity):
         rwy_selector1 = " " + runway_config
         rwy_selector2 = "-" + runway_config
 
-        landing_element = [i for i in runway_list if rwy_selector0 in i]
-        takeoff_element = [i for i in runway_list if rwy_selector0 in i]
+        element = [i for i in runway_list if rwy_selector0 in i]
 
-        split1 = landing_element[0].split("airstrip-")
-        split2a = split1[0].split(rwy_selector1)
-        split2b = split1[1].split(rwy_selector2)
+        runway_nr = ""
+        for i in range(len(element)):
+            split1 = element[i].split("airstrip-")
+            split2a = split1[0].split(rwy_selector1)
+            split2b = split1[1].split(rwy_selector2)
 
-        rwy = [0, 0]
-        rwy_nr = split2b[0]
-        rwy_name = split2a[0]
-        rwy[0] = rwy_nr
-        rwy[1] = rwy_name
+            rwy = [0, 0]
+            rwy_nr = split2b[0]
+            rwy_name = split2a[0]
+            rwy[0] = rwy_nr
+            rwy[1] = rwy_name
 
-        runway_nr = rwy[0]
-
-        # l_rwy = extract_runway(runway_list,"landing")
+            runway_nr = runway_nr + " " + rwy[0]
 
         self._state = runway_nr
-        # self.rwydata.update()
-        # self._state = self.hass.rwydata
-        # self._state = self._state + 1
 
 
 class RunwayData:
