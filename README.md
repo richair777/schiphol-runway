@@ -1,5 +1,6 @@
 # schiphol-runway
 Custom component for Home Assistant to show active runways for Amsterdam Airport Schiphol
+![image](https://user-images.githubusercontent.com/76779836/110947712-cd461580-8340-11eb-9db8-d96a39bd52b9.png)
 
 Creates two sensors:
 
