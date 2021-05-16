@@ -1,6 +1,7 @@
 {
   "domain": "schiphol_runway",
   "name": "Schiphol Runway",
+  "version": "1.0",
   "documentation": "https://github.com/richair777/schiphol-runway",
   "dependencies": [],
   "codeowners": [
